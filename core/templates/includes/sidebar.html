@@ -1,0 +1,79 @@
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a target="_blank" rel="noopener noreferrer" 
+           target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/django-dashboard-material" class="simple-text logo-normal">
+          Obra XYZ - Juiz de fora
+        </a>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item {% if 'index' == segment %} active {% endif %}">
+            <a class="nav-link" href="/">
+              <i class="material-icons">dashboard</i>
+              <p>Resumo da obra</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'page-user' in segment %} active {% endif %}">
+            <a class="nav-link" href="/page-user.html">
+              <i class="material-icons">person</i>
+              <p>Painel do arquiteto</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'suppliers' in segment %} active {% endif %}">
+            <a class="nav-link" href="/suppliers.html">
+              <i class="material-icons">content_paste</i>
+              <p>Lista de fornecedores</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'input-suppliers' in segment %} active {% endif %}">
+            <a class="nav-link" href="/input-suppliers.html">
+              <i class="material-icons">library_books</i>
+              <p>Cadastro de fornecedores</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'taxes' in segment %} active {% endif %}">
+            <a class="nav-link" href="/taxes.html">
+              <i class="material-icons">calculate</i>
+              <p>Contabilidade</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'order' in segment %} active {% endif %}">
+            <a class="nav-link" href="/order.html">
+              <i class="material-icons">add_shopping_cart</i>
+              <p>Ordem de compra</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'ui-notifications' in segment %} active {% endif %}">
+            <a class="nav-link" href="/ui-notifications.html">
+              <i class="material-icons">notifications</i>
+              <p>Notificações</p>
+            </a>
+          </li>
+          
+          <li class="nav-item ">
+            <a class="nav-link" href="/page-blank.html">
+              <i class="material-icons">language</i>
+              <p>Suporte</p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'logout' %}" >
+              <i class="material-icons">directions_run</i>
+              <p>Logout</p>
+            </a>
+          </li>
+
+          <li class="nav-item active-pro ">
+            <a target="_blank" rel="noopener noreferrer"  
+               class="nav-link" href="https://appseed.us/admin-dashboards/django-dashboard-material">
+              <i class="material-icons">unarchive</i>
+              <p>See product</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+    </div>
