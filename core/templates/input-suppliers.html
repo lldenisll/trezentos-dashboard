@@ -11,7 +11,23 @@
             <div class="card-header card-header-primary">
               <h4 class="card-title">Cadastro de fornecedor</h4>
               <p class="card-category">Inclua fornecedores não cadastrados na Trezentos</p>
+
+
             </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                    <div class="form-group">
+                        <form method='POST'> {% csrf_token %}
+                            {{forms.as_p }}
+                        <input type = "submit" value = 'Save' />
+                        </form>
+                    </div>
+                    </thead>
+                </table>
+            </div>
+        </div>
 
 
 {% endblock content %}
