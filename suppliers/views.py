@@ -9,5 +9,5 @@ def supplier_details(request):
         'nome': fornecedores.nome,
         'razaosocial':fornecedores.razaosocial
     }
-    return render(request, 'suppliers.html',context)
+    return render(request, 'suppliers.html',context = context)
 # Create your views here.

@@ -14,4 +14,9 @@ class Suppliers(models.Model):
     conta = models.CharField(max_length=8)
     agencia = models.CharField(max_length=6)
 
+    class Meta:
+        db_table='Suppliers'
+    def __str__(self):
+        return self.nome
+
 # Create your models here.
