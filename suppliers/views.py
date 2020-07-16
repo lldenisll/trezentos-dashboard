@@ -4,10 +4,17 @@ from suppliers.models import Suppliers
 
 
 def supplier_details(request):
-    fornecedores = Suppliers.objects.get(id=1)
+    fornecedores = Suppliers.objects.all()
+    # context = {
+    #     'nome': fornecedores.nome,
+    #     'razaosocial':fornecedores.razaosocial,
+    #     'cnpj': fornecedores.cnpj,
+    #     'endereco':fornecedores.enderecom,
+    #     'telefone':fornecedores.telefone
+    # }
+
     context = {
-        'nome': fornecedores.nome,
-        'razaosocial':fornecedores.razaosocial
+        'fornecedor': fornecedores
     }
     return render(request, 'suppliers.html',context = context)
 # Create your views here.

@@ -35,23 +35,28 @@
                         </th>
                       </thead>
                       <tbody>
+               {% for fornecedor in fornecedor%}
+
                         <tr>
+
                           <td>
-                            {{nome}}
+                            {{fornecedor.nome}}
                           </td>
                           <td>
-                            {{razaosocial}}
+                            {{fornecedor.razaosocial}}
                           </td>
                           <td>
-                            14.395.584/0001-56
+                            {{fornecedor.cnpj}}
                           </td>
                           <td>
-                            ESTRADA ROSA SCARPE, 195 - LOTE 9 - VOTUPARIM
+                            {{fornecedor.enderecom}}
                           </td>
                           <td class="text-primary">
-                            11 3784 5015
+                            {{fornecedor.telefone}}
                           </td>
                         </tr>
+               {%endfor %}
+
 
                       </tbody>
                     </table>
