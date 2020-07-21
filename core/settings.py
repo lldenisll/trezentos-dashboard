@@ -31,7 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',  # Enable the inner app
-    'suppliers' # Enable suppliers app
+    'suppliers', # Enable suppliers app
+    'clients'
+
 ]
 
 MIDDLEWARE = [

@@ -1,8 +1,8 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
       <div class="logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/django-dashboard-material" class="simple-text logo-normal">
-          Obra XYZ - Juiz de fora
+        <a  rel="noopener noreferrer"
+           rel="noopener noreferrer" href="../page-user.html" class="simple-text logo-normal">
+                    {{ request.user.username }}
         </a>
       </div>
       {% if user.is_authenticated %}
@@ -16,8 +16,8 @@
           </li>
           <li class="nav-item {% if 'page-user' in segment %} active {% endif %}">
             <a class="nav-link" href="/page-user.html">
-              <i class="material-icons">person</i>
-              <p>Painel do arquiteto</p>
+              <i class="material-icons">house</i>
+              <p>Painel da Obra</p>
             </a>
           </li>
           <li class="nav-item {% if 'suppliers' in segment %} active {% endif %}">
