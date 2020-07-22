@@ -51,3 +51,5 @@ def register_user(request):
         p_form = ProfileForm(request.POST)
 
     return render(request, "accounts/register.html", {"form": form, "p_form":p_form})
+
+
