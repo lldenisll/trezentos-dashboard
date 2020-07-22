@@ -2,7 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+from django.contrib import messages
 from django.shortcuts import render
 
 # Create your views here.
@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
-from .forms import LoginForm, SignUpForm
+from .forms import LoginForm, SignUpForm,ProfileForm
 
 def login_view(request):
     form = LoginForm(request.POST or None)
@@ -35,26 +35,19 @@ def login_view(request):
     return render(request, "accounts/login.html", {"form": form, "msg" : msg})
 
 def register_user(request):
-
-    msg     = None
-    success = False
-
     if request.method == "POST":
         form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get("username")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+        p_form=ProfileForm(request.POST)
+        if form.is_valid() and p_form.is_valid():
+            user = form.save()
+            p_form = p_form.save(commit=False)
+            p_form.user = user
+            p_form.save()
+            messages.success(request, f'Registration complete! You may log in!')
 
-            msg     = 'User created'
-            success = True
-            
             #return redirect("/login/")
-
-        else:
-            msg = 'Form is not valid'    
     else:
-        form = SignUpForm()
+        form = SignUpForm(request.POST)
+        p_form = ProfileForm(request.POST)
 
-    return render(request, "accounts/register.html", {"form": form, "msg" : msg, "success" : success })
+    return render(request, "accounts/register.html", {"form": form, "p_form":p_form})

@@ -36,17 +36,19 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Gestor Trezentos</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value = "{{ user.profile.gerenteContrato }}">
                         </div>
                       </div>
+
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Ponto focal do cliente</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value="{{user.profile.pontoFocalCliente}}">
                         </div>
                       </div>
                     </div>
@@ -54,7 +56,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Endereço da obra</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value="{{user.profile.enderecoObra}}">
                         </div>
                       </div>
                     </div>
@@ -62,19 +64,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Cidade da obra</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value="{{user.profile.cidadeObra}}">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Estado da Obra</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value="{{user.profile.estadoObra}}">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">CEP</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value="{{user.profile.cepObra}}">
                         </div>
                       </div>
                     </div>
@@ -83,8 +85,8 @@
                         <div class="form-group">
                           <label>Mais detalhes</label>
                           <div class="form-group">
-                            <label class="bmd-label-floating"> Uma obra muito boa</label>
-                            <textarea id = "info" class="form-control" rows="5"></textarea>
+                            <label class="bmd-label-floating"> </label>
+                            <textarea id = "info" class="form-control"value="{{user.profile.infoGeral}}" rows="5"></textarea>
                           </div>
                         </div>
                       </div>
@@ -99,20 +101,24 @@
               <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="#pablo">
-                    <img class="img" src="/static/assets/img/sidebar-2.jpg" />
+                    <img class="img" src="/static/assets/img/obra.jpg" width="40%" />
                   </a>
                 </div>
                 <div class="card-body">
                   <h6 class="card-category text-gray">
                     {{ request.user.username }}
                   </h6>
+                  <h2>
+                    Dias até o deadline 
+                  </h2>
                   <h4 class="card-title">
-                    {{ request.suser.email }}
+                    Data de início: {{ user.profile.dataIncio }}
                   </h4>
-                  <p class="card-description">
-                    Nova obra de arquitetura par ao cliente XYZ
-                  </p>
-                  <a href="#pablo" class="btn btn-primary btn-round"></a>
+                  <h4 class="card-title">
+                    Data de fim: {{user.profile.dataFim}}
+                  </h4>
+
+
                 </div>
               </div>
             </div>

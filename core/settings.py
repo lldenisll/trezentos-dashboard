@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',  # Enable the inner app
     'suppliers', # Enable suppliers app
-    'clients'
+    'authentication',
 
 ]
 

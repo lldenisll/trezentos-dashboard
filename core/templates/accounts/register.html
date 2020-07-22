@@ -12,7 +12,7 @@
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title">
-            Create Account
+            Cadastro de obra
           </h4>
         </div>
         <div class="card-body">
@@ -21,7 +21,7 @@
               {% if msg %}
                 <span class="text-danger">{{ msg }}</span>
               {% else %}
-                Add your credentials
+                Adicione informações da obra
               {% endif %}  
           </h6>
           
@@ -30,7 +30,7 @@
           {% if success %}
 
             <p class="">
-              Please <a href={% url 'login' %} class="text-black text-small">authenticate</a> using the new account.
+              Por favor <a href={% url 'login' %} class="text-black text-small">faça login</a> na nova obra.
             </p>  
 
           {% else %}
@@ -83,14 +83,134 @@
                 </div>
               </div>
               <span class="text-danger">{{ form.password2.errors }}</span>
+              <br />
+
+
+                 <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Nome do cliente</label>
+                    {{ p_form.nomeCliente }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.nomeCliente.errors }}</span>
 
               <br />
 
-              <button type="submit" name="register" class="btn btn-primary pull-left">Register</button>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Ponto focal do cliente</label>
+                    {{ p_form.pontoFocalCliente }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.pontoFocalCliente.errors }}</span>
+              <br />
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Data de início da obra</label>
+                    {{ p_form.dataIncio }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.dataIncio.errors }}</span>
+
+              <br />
+
+               <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Data prevista para fim da obra</label>
+                    {{ p_form.dataFim }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.dataFim.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Gerente do contrato</label>
+                    {{ p_form.gerenteContrato }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.gerenteContrato.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Endereço da obra</label>
+                    {{ p_form.enderecoObra }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.enderecoObra.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Cidade</label>
+                    {{ p_form.cidadeObra }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.cidadeObra.errors }}</span>
+
+              <br />
+
+                <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Estado</label>
+                    {{ p_form.estadoObra }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.estadoObra.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">CEP</label>
+                    {{ p_form.cepObra }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.cepObra.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Informações adicionais</label>
+                    {{ p_form.infoGeral }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ p_form.infoGeral.errors }}</span>
+
+              <br />
+
+              <button type="submit" name="register" class="btn btn-primary pull-left">Cadastre a obra</button>
 
               &nbsp; &nbsp; 
               <span class="pull-right">
-                Have an account? <a href="{% url 'login' %}" class="text-primary">Login</a>
+                Obra já cadastrada? <a href="{% url 'login' %}" class="text-primary">Gerencie a sua obra</a>
               </span>
 
               <div class="clearfix"></div>
