@@ -12,6 +12,14 @@ class SuppliersForm(forms.ModelForm):
             'telefone': 'Tel()'
         }
 
+        labels = {
+            'nome': 'Nome do fornecedor',
+            'razaosocial': 'Razão Social',
+            'cnpj': 'CNPJ',
+            'enderecom': 'Endereço',
+            'telefone': 'Telefone para contato com DDD'
+        }
+
         widgets = {
             'nome':forms.TextInput(attrs={'class':'form-control'}),
             'razaosocial': forms.TextInput(attrs={'class': 'form-control'}),

@@ -1,17 +1,9 @@
 from django.db import models
 
 class Order(models.Model):
-    # dados da empresa não preciso criar outro DB, só resgatar essas informações de acordo com o nome do fornecedor
     nome = models.CharField(max_length=100)
-    # razaosocial = models.CharField(max_length=200)
-    # cnpj = models.CharField(max_length=22)
-    # ie = models.CharField(max_length=20)
-    # banco = models.CharField(max_length=100)
-    # conta = models.CharField(max_length=8)
-    # agencia = models.CharField(max_length=6)
-
     # dados da entrega
-    dataentrega = models.DateTimeField(verbose_name='Data da entrega')
+    dataentrega = models.DateField(verbose_name='Data da entrega')
     enderecoentrega = models.CharField(max_length=300)
     responsavel = models.CharField(max_length=100)
     telefoneresponsavel = models.CharField(max_length=12)
@@ -26,6 +18,12 @@ class Order(models.Model):
     data = models.DateTimeField(verbose_name='Data da OC')
 
     # Dados de pagamento
+    valor = models.CharField(max_length=12)
+    DDL = models.CharField(max_length=3)
+    datapg = models.DateField(verbose_name='Data de pagamento')
+    obs = models.CharField(max_length=50)
+    descritivo = models.TextField(max_length=500)
 
-
+    # Dados de faturamento
+    faturador = models.TextField(max_length=23)
 # Create your models here.
