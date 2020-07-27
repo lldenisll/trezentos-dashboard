@@ -7,17 +7,88 @@
 
 {% block content %}
 <div class="row">
-        <div class="col-md-12">
-            <div class="card card-profile">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Criação de ordem de compra</h4>
+          <p class="card-category">Acrescente informações necessárias</p>
+        </div>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group fieldWrapper">
                         <form method='POST'> {% csrf_token %}
-                            {{forms.as_p }}
-                        <input type = "submit" value = 'Save' />
-                        </form>
+                            <h3>Informações gerais</h3>
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    {{forms2.nome.label_tag}}
+                                    {{forms2.nome}}
+                                </div>
+                                <div class="col-md-4">
+                                    {{forms.dataentrega.label_tag}}
+                                    {{forms.dataentrega}}
+                                </div>
+                                 <div class="col-md-4">
+                                    {{forms.data.label_tag}}
+                                    {{forms.data}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{forms2.disciplina.label_tag}}
+                                    {{forms2.disciplina}}
+                                </div>
+                                <div class="col-md-4">
+                                    {{forms.referencia.label_tag}}
+                                    {{forms.referencia}}
+                                </div>
+                                 <div class="col-md-4">
+                                    {{forms.revisao.label_tag}}
+                                    {{forms.revisao}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{forms.nomedaobra.label_tag}}
+                                    {{forms.nomedaobra}}
+                                </div>
+                                <div class="col-md-4">
+                                    {{forms.numerooc.label_tag}}
+                                    {{forms.numerooc}}
+                                </div>
+                                 <div class="col-md-4">
+                                    {{forms2.faturador.label_tag}}
+                                    {{forms2.faturador}}
+                                </div>
+                            </div>
+
+                            <hr class="separador">
+                            <h3>Informações da entrega</h3>
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    {{forms.enderecoentrega.label_tag}}
+                                    {{forms.enderecoentrega}}
+                                </div>
+                                <div class="col-md-4">
+                                    {{forms.responsavel.label_tag}}
+                                    {{forms.responsavel}}
+                                </div>
+                                 <div class="col-md-4">
+                                    {{forms.telefoneresponsavel.label_tag}}
+                                    {{forms.telefoneresponsavel}}
+                                </div>
+                            </div>
+                            <br>
+                            <input type = "submit" value = 'Criar OC' />
+                         </form>
+
+<!--                        <form method='POST'> {% csrf_token %}-->
+<!--                            {{forms.as_p }}-->
+<!--                            {{forms2.as_p}}-->
+<!--                        <input type = "submit" value = 'Save' />-->
+<!--                        </form>-->
 
                     </div>
-                </div>
             </div>
         </div>
     </div>

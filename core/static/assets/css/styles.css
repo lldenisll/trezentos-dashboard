@@ -1,0 +1,5 @@
+.separador{
+  border: 0;
+  height: 8px;
+  background-image: linear-gradient(to right, transparent, purple, transparent);
+}

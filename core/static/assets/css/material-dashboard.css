@@ -18820,4 +18820,11 @@ Copyright (c) 2015 Daniel Eden
   }
 }
 
+.separador{
+  border: 0;
+  height: 10px;
+  background-image: linear-gradient(to right, transparent, #CCC, transparent);
+  color:purple;
+}
+
 /*# sourceMappingURL=dashboard-free.css.map */

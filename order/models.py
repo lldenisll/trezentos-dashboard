@@ -26,4 +26,9 @@ class Order(models.Model):
 
     # Dados de faturamento
     faturador = models.TextField(max_length=23)
+
+    class Meta:
+        db_table='Order'
+    def __str__(self):
+        return self.nome
 # Create your models here.

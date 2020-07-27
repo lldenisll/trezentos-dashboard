@@ -59,3 +59,10 @@
   height: calc(100vh - 70px);
   margin-top: 70px;
 }
+
+.separador{
+  border: 0;
+  height: 10px;
+  background-image: linear-gradient(to right, transparent, #CCC, transparent);
+  color:purple;
+}
