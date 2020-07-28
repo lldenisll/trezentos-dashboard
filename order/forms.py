@@ -3,54 +3,17 @@ from suppliers.models import Suppliers
 from .models import Order
 from authentication.forms import ProfileForm, Profile
 from authentication.models import Profile, User
-
+import random
+from datetime import date, timedelta
 
 class OrderForm(forms.ModelForm):
-    endereco=Profile.objects.filter(user='user').enderecoObra
-    enderecoentrega = forms.CharField(label = 'Endereço de entrega',initial=endereco,widget=forms.TextInput(attrs={"class": "form-control"}))
-    class Meta:
-        model = Order
 
-        fields = {
-            'dataentrega': 'dataentrega',
-            'responsavel': 'responsavel',
-            'telefoneresponsavel': 'telefoneresponsavel',
-            'nomedaobra': 'nomedaobra',  # TODO: recebe o nome do usuário
-            'numerooc': 'numerooc',
-            'revisao': 'revisao',
-            'referencia': 'referencia',
-            'data': 'data'
-        }
-
-        labels = {
-            'dataentrega': 'Data da entrega',
-            'enderecoentrega': 'Endereço da entrega',
-            'responsavel': 'Responsável pelo recebimento',
-            'telefoneresponsavel': 'Telefone do responsável',
-            'nomedaobra': 'Nome da Obra',
-            'numerooc': 'Número da OC',
-            'revisao': 'Revisão',
-            'referencia': 'Referência',
-            'data': 'Data do pedido'
-        }
-
-
-        widgets = {
-            'dataentrega': forms.TextInput(attrs={'class': 'form-control'}),
-            'enderecoentrega': forms.TextInput(attrs={'class': 'form-control'}),
-            'responsavel': forms.TextInput(attrs={'class': 'form-control'}),
-            'telefoneresponsavel': forms.TextInput(attrs={'class': 'form-control'}),
-            'nomedaobra': forms.TextInput(attrs={'class': 'form-control'}),
-            'numerooc': forms.TextInput(attrs={'class': 'form-control'}),
-            'revisao': forms.TextInput(attrs={'class': 'form-control'}),
-            'referencia': forms.TextInput(attrs={'class': 'form-control'}),
-            'data': forms.TextInput(attrs={'class': 'form-control'}),
-        }
-
-
-class OrderForm2(forms.Form):
-    nome = forms.ModelChoiceField(queryset=Suppliers.objects.all(),
-                                  widget=forms.Select(attrs={"class": "form-control"}))
+    ocproduto = random.randint(1, 999)
+    g_numerooc = f'{ocproduto} / {date.today().month}'
+    g_dataentrega = date.today() + timedelta(days=5)
+    g_endereco = Profile.objects.get(id=4).enderecoObra
+    g_resp = Profile.objects.get(id=4).pontoFocalCliente
+    g_nomeobra = Profile.objects.get(id=4).user
     disciplinaop = [
         ('1', 'Seguro'),
         ('2', 'Equipe de Obra'),
@@ -89,14 +52,68 @@ class OrderForm2(forms.Form):
         ('35', 'Limpeza'),
         ('36', 'Paisagismo'),
     ]
-    disciplina = forms.ChoiceField(label="Disciplina", widget=forms.Select(attrs={"class": "form-control"}),
-                                   choices=disciplinaop, initial='20')
     options = [
         ('1', 'cliente'),
         ('2', 'T-60'),
     ]
+
+    enderecoentrega = forms.CharField(label='Endereço de entrega', initial=g_endereco,
+                                      widget=forms.TextInput(attrs={"class": "form-control"}))
+    responsavel = forms.CharField(label='Responsável pela entrega', initial=g_resp,
+                                  widget=forms.TextInput(attrs={"class": "form-control"}))
+    nomedaobra = forms.CharField(label='Obra', initial=g_nomeobra,
+                                 widget=forms.TextInput(attrs={"class": "form-control"}))
+    numerooc = forms.CharField(label='Numero OC', initial=g_numerooc,
+                               widget=forms.TextInput(attrs={"class": "form-control"}))
+    dataentrega = forms.DateField(label='Data da entrega', initial=(g_dataentrega),
+                                  widget=forms.DateInput(attrs={"class": "form-control"}))
+    data = forms.DateField(label='Data da O.C', initial=date.today(),
+                           widget=forms.DateInput(attrs={"class": "form-control"}))
+    valor = forms.CharField(label='Valor da compra', initial='R$',
+                            widget=forms.TextInput(attrs={"class": "form-control"}))
+    DDL = forms.CharField(label='DDL', widget=forms.TextInput(attrs={"class": "form-control"}))
+    datapg = forms.DateField(label='Data do pagamento', initial=date.today(),
+                             widget=forms.DateInput(attrs={"class": "form-control"}))
+    obs = forms.CharField(label='Observação', widget=forms.TextInput(attrs={"class": "form-control"}))
+    descritivo = forms.CharField(label='Descritivo', widget=forms.TextInput(attrs={"class": "form-control"}))
+    telefoneresponsavel = forms.CharField(label='Telefone do responsável',
+                                          widget=forms.TextInput(attrs={"class": "form-control"}))
+    revisao = forms.CharField(label='Revisão', widget=forms.TextInput(attrs={"class": "form-control"}))
+    referencia = forms.CharField(label='Referencia', widget=forms.TextInput(attrs={"class": "form-control"}))
+    nome = forms.ModelChoiceField(queryset=Suppliers.objects.all(),
+                                  widget=forms.Select(attrs={"class": "form-control"}))
+    disciplina = forms.ChoiceField(label="Disciplina", widget=forms.Select(attrs={"class": "form-control"}),
+                                   choices=disciplinaop, initial='20')
     faturador = forms.ChoiceField(label="Faturamento para", widget=forms.Select(attrs={"class": "form-control"}),
                                   choices=options)
+
+    class Meta:
+        model = Order
+        fields = ('nome',
+        'dataentrega',
+        'enderecoentrega',
+        'responsavel',
+        'telefoneresponsavel',
+        'nomedaobra' ,
+        'numerooc' ,
+        'disciplina',
+        'revisao' ,
+        'referencia',
+        'data' ,
+        'valor' ,
+        'DDL',
+        'datapg',
+        'obs' ,
+        'descritivo',
+        'faturador' )
+
+
+
+
+
+
+#class OrderForm2(forms.Form):
+
 
 
 
