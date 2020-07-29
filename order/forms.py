@@ -1,19 +1,20 @@
 from django import forms
 from suppliers.models import Suppliers
 from .models import Order
+from .views import order_create
 from authentication.forms import ProfileForm, Profile
 from authentication.models import Profile, User
 import random
 from datetime import date, timedelta
 
 class OrderForm(forms.ModelForm):
-
+    id=4 #TODO: GET ID
     ocproduto = random.randint(1, 999)
     g_numerooc = f'{ocproduto} / {date.today().month}'
     g_dataentrega = date.today() + timedelta(days=5)
-    g_endereco = Profile.objects.get(id=4).enderecoObra
-    g_resp = Profile.objects.get(id=4).pontoFocalCliente
-    g_nomeobra = Profile.objects.get(id=4).user
+    g_endereco = Profile.objects.get(id=id).enderecoObra
+    g_resp = Profile.objects.get(id=id).pontoFocalCliente
+    g_nomeobra = Profile.objects.get(id=id).user
     disciplinaop = [
         ('1', 'Seguro'),
         ('2', 'Equipe de Obra'),

@@ -14,7 +14,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('suppliers.html', supplier_details), #TODO: SEMPRE CADASTRAR AQUI NO URLS DO APP
     path('input-suppliers.html', supplier_create),
-    path('order.html',order_create),
+    path('order.html/<int:profile_id>/',order_create),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 
