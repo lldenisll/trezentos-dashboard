@@ -1,7 +1,6 @@
 from django import forms
 from suppliers.models import Suppliers
 from .models import Order
-from .views import order_create
 from authentication.forms import ProfileForm, Profile
 from authentication.models import Profile, User
 import random
