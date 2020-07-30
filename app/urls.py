@@ -7,6 +7,7 @@ from django.urls import path, re_path
 from app import views
 from suppliers.views import supplier_details, supplier_create
 from order.views import order_create
+from authentication.views import update_user, edit_user_view
 
 urlpatterns = [
 
@@ -15,6 +16,8 @@ urlpatterns = [
     path('suppliers.html', supplier_details), #TODO: SEMPRE CADASTRAR AQUI NO URLS DO APP
     path('input-suppliers.html', supplier_create),
     path('order.html/<int:profile_id>/',order_create),
+    path('edit-user.html', update_user),
+    path('submit', edit_user_view),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 

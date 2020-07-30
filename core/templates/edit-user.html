@@ -1,25 +1,33 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Ordem de Compra {% endblock %}
+{% block title %} Cadastro de fornecedor {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
 
-          <div class="row">
+<div class="row">
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Informações da obra</h4>
+                  <h4 class="card-title">Editar informações da obra</h4>
+                  <p class="card-category">Acrescente informações necessárias</p>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form action="submit" method="POST"> {% csrf_token %}
+                    <input type="number" name="profile_id" value="{{ user.profile.id }}" hidden>
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">UserID (disabled)</label>
-                          <input type="text" class="form-control" disabled value="{{ user.profile.id }}">
+                          <label class="bmd-label-floating">Data de início</label>
+                          <input type="date" class="form-control" name="dataIncio" value="{{ user.profile.dataIncio }}">
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Data de fim</label>
+                          <input type="date" class="form-control" name="dataFim" value="{{ user.profile.dataFim }}">
                         </div>
                       </div>
                       <div class="col-md-3">
@@ -40,14 +48,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Gestor Trezentos</label>
-                          <input type="text" class="form-control" value = "{{ user.profile.gerenteContrato }}">
+                          <input type="text" class="form-control" name="gerenteContrato" value = "{{ user.profile.gerenteContrato }}">
                         </div>
                       </div>
 
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Ponto focal do cliente</label>
-                          <input type="text" class="form-control" value="{{user.profile.pontoFocalCliente}}">
+                          <input type="text" class="form-control" name="pontoFocalCliente" value="{{user.profile.pontoFocalCliente}}">
                         </div>
                       </div>
                     </div>
@@ -55,7 +63,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Endereço da obra</label>
-                          <input type="text" class="form-control" value="{{user.profile.enderecoObra}}">
+                          <input type="text" class="form-control" name="enderecoObra" value="{{user.profile.enderecoObra}}">
                         </div>
                       </div>
                     </div>
@@ -63,19 +71,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Cidade da obra</label>
-                          <input type="text" class="form-control" value="{{user.profile.cidadeObra}}">
+                          <input type="text" class="form-control" name="cidadeObra" value="{{user.profile.cidadeObra}}">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Estado da Obra</label>
-                          <input type="text" class="form-control" value="{{user.profile.estadoObra}}">
+                          <input type="text" class="form-control" name="estadoObra" value="{{user.profile.estadoObra}}">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">CEP</label>
-                          <input type="text" class="form-control" value="{{user.profile.cepObra}}">
+                          <input type="text" class="form-control" name="cepObra" value="{{user.profile.cepObra}}">
                         </div>
                       </div>
                     </div>
@@ -85,45 +93,22 @@
                           <label>Mais detalhes</label>
                           <div class="form-group">
                             <label class="bmd-label-floating"> </label>
-                            <textarea id = "info" class="form-control"value="{{user.profile.infoGeral}}" rows="5"></textarea>
+                            <input type="text" id = "info" class="form-control" name="infoGeral" value="{{user.profile.infoGeral}}" rows="5"></inputtextarea>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <a href="edit-user.html">
-                      <button  type="button" class="btn btn-primary pull-right">Editar</button>
-                    </a>
+                     <a href="page-user.html">
+                         <button  type="button" class="btn btn-primary pull-right">Cancelar</button>
+                     </a>
+                         <button  type="submit" class="btn btn-primary pull-right">Salvar</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#pablo">
-                    <img class="img" src="/static/assets/img/obra.jpg" width="40%" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-category text-gray">
-                    {{ request.user.username }}
-                  </h6>
-                  <h2>
-                    Dias até o deadline: 23
-                  </h2>
-                  <h4 class="card-title">
-                    Data de início: {{ user.profile.dataIncio }}
-                  </h4>
-                  <h4 class="card-title">
-                    Data de fim: {{user.profile.dataFim}}
-                  </h4>
-
 
                 </div>
-              </div>
-            </div>
-          </div>
 
 {% endblock content %}
 

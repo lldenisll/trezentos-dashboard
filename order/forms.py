@@ -7,7 +7,7 @@ import random
 from datetime import date, timedelta
 
 class OrderForm(forms.ModelForm):
-    id=4 #TODO: GET ID
+    id=1 #TODO: GET ID
     ocproduto = random.randint(1, 999)
     g_numerooc = f'{ocproduto} / {date.today().month}'
     g_dataentrega = date.today() + timedelta(days=5)

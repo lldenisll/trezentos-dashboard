@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from suppliers.models import Suppliers
 from .forms import OrderForm
-from authentication.models import Profile,User
+from authentication.models import Profile, User
 
 def order_create(request,profile_id):
     profile_id =  Profile.objects.all().last().id #TODO: trocar a forma como pega o ID para request.id

@@ -11,7 +11,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
-from .forms import LoginForm, SignUpForm,ProfileForm
+from .forms import LoginForm, SignUpForm, ProfileForm
+from .models import Profile
 
 def login_view(request):
     form = LoginForm(request.POST or None)
@@ -53,3 +54,35 @@ def register_user(request):
     return render(request, "accounts/register.html", {"form": form, "p_form":p_form})
 
 
+def update_user(request):
+    profile_id = request.GET.get('id')
+    context = {}
+    if profile_id:
+        context['Profile'] = Profile.objects.get(id=profile_id)
+    return render(request, 'edit-user.html')
+
+
+def edit_user_view(request):
+    if request.POST:
+        pontoFocalCliente = request.POST.get('pontoFocalCliente')
+        dataIncio = request.POST.get('dataIncio')
+        dataFim = request.POST.get('dataFim')
+        gerenteContrato = request.POST.get('gerenteContrato')
+        enderecoObra = request.POST.get('enderecoObra')
+        cidadeObra = request.POST.get('cidadeObra')
+        estadoObra = request.POST.get('estadoObra')
+        cepObra = request.POST.get('cepObra')
+        infoGeral = request.POST.get('infoGeral')
+        profile_id = request.POST.get('profile_id')
+        Profile.objects.filter(id=profile_id).update(
+            pontoFocalCliente=pontoFocalCliente,
+            dataIncio=dataIncio,
+            dataFim=dataFim,
+            gerenteContrato=gerenteContrato,
+            enderecoObra=enderecoObra,
+            cidadeObra=cidadeObra,
+            estadoObra=estadoObra,
+            cepObra=cepObra,
+            infoGeral=infoGeral
+        )
+    return render(request, 'page-user.html')
