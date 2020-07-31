@@ -17,24 +17,24 @@
                   <form>
 
                     <div class="row">
-                      <div class="col-md-5">
+                      <div class="col-md-1">
                         <div class="form-group">
-                          <label class="bmd-label-floating">UserID (disabled)</label>
-                          <input type="text" class="form-control" disabled value="{{ user.profile.id }}">
+                          <label class="bmd-label-floating" hidden>UserID (disabled)</label>
+                          <input type="text" class="form-control" disabled value="{{ user.profile.id }}" hidden>
                         </div>
                       </div>
 
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nome da Obra</label>
-                          <input type="text" class="form-control" disabled value="{{ request.user.username }}">
+                          <b class="form-control">{{ request.user.username }}</b>
                         </div>
                       </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email do responsável </label>
-                          <input type="email" class="form-control" disabled value="{{ request.user.email }}">
+                          <b class="form-control">{{ request.user.email }}</b>
                         </div>
                       </div>
                     </div>
