@@ -20,14 +20,14 @@
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Data de início</label>
-                          <input type="date" class="form-control" name="dataIncio" value="{{ user.profile.dataIncio }}">
+                          <label>Data de início</label>
+                          <input type="date" class="form-control" name="dataIncio" value="{{ user.profile.get_date_initial }}">
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Data de fim</label>
-                          <input type="date" class="form-control" name="dataFim" value="{{ user.profile.dataFim }}">
+                          <label>Data de fim</label>
+                          <input type="date" class="form-control" name="dataFim" value="{{ user.profile.get_date_final }}">
                         </div>
                       </div>
                       <div class="col-md-3">

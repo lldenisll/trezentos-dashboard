@@ -5,6 +5,8 @@ Copyright (c) 2019 - present AppSeed.us
 from django.contrib.auth.models import User
 from django.db import models
 
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nomeCliente = models.CharField(max_length=40)
@@ -19,7 +21,16 @@ class Profile(models.Model):
     infoGeral = models.TextField(max_length=500)
 
     class Meta:
-        db_table='Profile'
+        db_table = 'Profile'
+
     def __str__(self):
         return self.nomeCliente
 # Create your models here.
+
+
+    def get_date_initial(self):
+        return self.dataIncio.strftime('%Y-%m-%d')
+
+
+    def get_date_final(self):
+        return self.dataFim.strftime('%Y-%m-%d')

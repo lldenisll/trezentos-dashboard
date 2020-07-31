@@ -15,6 +15,7 @@
                 </div>
                 <div class="card-body">
                   <form>
+
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
@@ -22,16 +23,18 @@
                           <input type="text" class="form-control" disabled value="{{ user.profile.id }}">
                         </div>
                       </div>
+
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nome da Obra</label>
-                          <input type="text" class="form-control" value="{{ request.user.username }}">
+                          <input type="text" class="form-control" disabled value="{{ request.user.username }}">
                         </div>
                       </div>
+
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email do responsável </label>
-                          <input type="email" class="form-control" value="{{ request.user.email }}">
+                          <input type="email" class="form-control" disabled value="{{ request.user.email }}">
                         </div>
                       </div>
                     </div>
@@ -40,14 +43,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Gestor Trezentos</label>
-                          <input type="text" class="form-control" value = "{{ user.profile.gerenteContrato }}">
+                          <b class="form-control">{{ user.profile.gerenteContrato }}</b>
                         </div>
                       </div>
 
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Ponto focal do cliente</label>
-                          <input type="text" class="form-control" value="{{user.profile.pontoFocalCliente}}">
+                          <b class="form-control">{{user.profile.pontoFocalCliente}}</b>
                         </div>
                       </div>
                     </div>
@@ -55,7 +58,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Endereço da obra</label>
-                          <input type="text" class="form-control" value="{{user.profile.enderecoObra}}">
+                          <b class="form-control">{{user.profile.enderecoObra}}</b>
                         </div>
                       </div>
                     </div>
@@ -63,19 +66,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Cidade da obra</label>
-                          <input type="text" class="form-control" value="{{user.profile.cidadeObra}}">
+                          <b class="form-control">{{user.profile.cidadeObra}}</b>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Estado da Obra</label>
-                          <input type="text" class="form-control" value="{{user.profile.estadoObra}}">
+                          <b class="form-control">{{user.profile.estadoObra}}</b>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">CEP</label>
-                          <input type="text" class="form-control" value="{{user.profile.cepObra}}">
+                          <b class="form-control">{{user.profile.cepObra}}</b>
                         </div>
                       </div>
                     </div>
@@ -85,7 +88,7 @@
                           <label>Mais detalhes</label>
                           <div class="form-group">
                             <label class="bmd-label-floating"> </label>
-                            <textarea id = "info" class="form-control"value="{{user.profile.infoGeral}}" rows="5"></textarea>
+                            <b id = "info" class="form-control">{{user.profile.infoGeral}}</b>
                           </div>
                         </div>
                       </div>

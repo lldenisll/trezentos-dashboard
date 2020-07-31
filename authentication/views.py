@@ -14,6 +14,7 @@ from django.http import HttpResponse
 from .forms import LoginForm, SignUpForm, ProfileForm
 from .models import Profile
 
+
 def login_view(request):
     form = LoginForm(request.POST or None)
 
@@ -46,7 +47,7 @@ def register_user(request):
             p_form.save()
             messages.success(request, f'Registration complete! You may log in!')
 
-            #return redirect("/login/")
+            return redirect("/login/")
     else:
         form = SignUpForm(request.POST)
         p_form = ProfileForm(request.POST)
@@ -86,3 +87,4 @@ def edit_user_view(request):
             infoGeral=infoGeral
         )
     return render(request, 'page-user.html')
+
