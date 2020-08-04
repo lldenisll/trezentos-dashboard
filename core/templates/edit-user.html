@@ -15,7 +15,7 @@
                   <p class="card-category">Acrescente informações necessárias</p>
                 </div>
                 <div class="card-body">
-                  <form action="submit" method="POST"> {% csrf_token %}
+                  <form action="submit-user" method="POST"> {% csrf_token %}
                     <input type="number" name="profile_id" value="{{ user.profile.id }}" hidden>
                     <div class="row">
                       <div class="col-md-5">

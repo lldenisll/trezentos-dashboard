@@ -15,118 +15,167 @@
         </div>
                 <div class="card-body">
                     <div class="form-group fieldWrapper">
-                        <form method='POST'> {% csrf_token %}
+                        <form action="submit-order" method="POST"> {% csrf_token %}
                             <h3>Informações gerais</h3>
+
                             <div class="row">
 
                                 <div class="col-md-4">
-                                    {{forms.nome.label_tag}}
-                                    {{forms.nome}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nome</label>
+                                        <input type="text" class="form-control" name="nome" >
+                                    </div>
                                 </div>
+
                                 <div class="col-md-4">
-                                    {{forms.dataentrega.label_tag}}
-                                    {{forms.dataentrega}}
+                                    <div class="form-group">
+                                        <label>Data de Entrega</label>
+                                        <input type="date" class="form-control" name="dataentrega">
+                                    </div>
                                 </div>
+
                                  <div class="col-md-4">
-                                    {{forms.data.label_tag}}
-                                    {{forms.data}}
+                                    <div class="form-group">
+                                        <label>Data</label>
+                                        <input type="date" class="form-control" name="data">
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="row">
+
                                 <div class="col-md-4">
-                                    {{forms.disciplina.label_tag}}
-                                    {{forms.disciplina}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Disciplina</label>
+                                        <input type="text" class="form-control" name="disciplina">
+                                    </div>
                                 </div>
+
                                 <div class="col-md-4">
-                                    {{forms.referencia.label_tag}}
-                                    {{forms.referencia}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Referencia</label>
+                                        <input type="text" class="form-control" name="referencia">
+                                    </div>
                                 </div>
+
                                  <div class="col-md-4">
-                                    {{forms.revisao.label_tag}}
-                                    {{forms.revisao}}
+                                     <div class="form-group">
+                                         <label class="bmd-label-floating">Revisão</label>
+                                         <input type="text" class="form-control" name="revisao">
+                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
+
                                 <div class="col-md-4">
-                                    {{forms.nomedaobra.label_tag}}
-                                    {{forms.nomedaobra}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nome da Obra</label>
+                                        <input type="text" class="form-control" name="nomedaobra">
+                                    </div>
                                 </div>
+
                                 <div class="col-md-4">
-                                    {{forms.numerooc.label_tag}}
-                                    {{forms.numerooc}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Número da OC</label>
+                                        <input type="number" class="form-control" name="numerooc">
+                                    </div>
                                 </div>
+
                                  <div class="col-md-4">
-                                    {{forms.faturador.label_tag}}
-                                    {{forms.faturador}}
+                                     <div class="form-group">
+                                         <label class="bmd-label-floating">Fatura para</label>
+                                         <input type="text" class="form-control" name="faturador">
+                                     </div>
                                 </div>
                             </div>
 
                             <hr class="separador">
                             <h3>Informações da entrega</h3>
+
                             <div class="row">
 
                                 <div class="col-md-4">
-                                    {{forms.enderecoentrega.label_tag}}
-                                    {{forms.enderecoentrega}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Endereço de Entrega</label>
+                                        <input type="text" class="form-control" name="enderecoentrega">
+                                    </div>
                                 </div>
+
                                 <div class="col-md-4">
-                                    {{forms.responsavel.label_tag}}
-                                    {{forms.responsavel}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Responsável</label>
+                                        <input type="text" class="form-control" name="responsavel">
+                                    </div>
                                 </div>
-                                 <div class="col-md-4">
-                                    {{forms.telefoneresponsavel.label_tag}}
-                                    {{forms.telefoneresponsavel}}
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Telefone do Responsável</label>
+                                        <input type="number" class="form-control" name="telefoneresponsavel">
+                                    </div>
                                 </div>
                             </div>
+
                             <br>
                             <hr class="separador">
                             <h3>Informações de pagamento</h3>
+
                             <div class="row">
 
                                 <div class="col-md-4">
-                                    {{forms.valor.label_tag}}
-                                    {{forms.valor}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Valor</label>
+                                        <input type="number" class="form-control" name="valor">
+                                    </div>
                                 </div>
+
                                 <div class="col-md-4">
-                                    {{forms.DDL.label_tag}}
-                                    {{forms.DDL}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">DDL</label>
+                                        <input type="text" class="form-control" name="DDL">
+                                    </div>
                                 </div>
+
                                  <div class="col-md-4">
-                                    {{forms.datapg.label_tag}}
-                                    {{forms.datapg}}
+                                     <div class="form-group">
+                                         <label>Data de Pagamento</label>
+                                         <input type="date" class="form-control" name="datapg">
+                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
 
                                  <div class="col-md-6">
-                                    {{forms.obs.label_tag}}
-                                    {{forms.obs}}
+                                     <div class="form-group">
+                                         <label class="bmd-label-floating">Observações</label>
+                                         <input type="text" class="form-control" name="obs">
+                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
-                                    {{forms.descritivo.label_tag}}
-                                    {{forms.descritivo}}
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Descrição</label>
+                                        <input type="text" class="form-control" name="descritivo">
+                                    </div>
                                 </div>
 
                             </div>
-                            </div>
+
                             <br>
-                            <input type = "submit" value = 'Criar OC' />
-                            <button type="button" value = 'Gerar PDF'>
-                                
-                            </button>
+                                <button type="submit" class="btn btn-primary pull-right">Criar OC</button>
+
+<!--                            <input type = "submit" value = 'Criar OC' />-->
+<!--                            <button type="button" value = 'Gerar PDF'>-->
+<!---->
+<!--                            </button>-->
                          </form>
-
-<!--                        <form method='POST'> {% csrf_token %}-->
-<!--                            {{forms.as_p }}-->
-<!--                            {{forms2.as_p}}-->
-<!--                        <input type = "submit" value = 'Save' />-->
-<!--                        </form>-->
-
                     </div>
-            </div>
-        </div>
+                </div>
+      </div>
     </div>
-
+</div>
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
@@ -135,3 +184,4 @@
 
   
 {% endblock javascripts %}
+

@@ -34,12 +34,12 @@ def login_view(request):
         else:
             msg = 'Error validating the form'    
 
-    return render(request, "accounts/login.html", {"form": form, "msg" : msg})
+    return render(request, "accounts/login.html", {"form": form, "msg": msg})
 
 def register_user(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
-        p_form=ProfileForm(request.POST)
+        p_form = ProfileForm(request.POST)
         if form.is_valid() and p_form.is_valid():
             user = form.save()
             p_form = p_form.save(commit=False)
